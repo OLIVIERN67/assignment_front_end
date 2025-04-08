@@ -3,37 +3,68 @@
 <head>
   <title>Form Validation</title>
   <style type="text/css">
-    form{
-      background-color: white;
+    .myf{
+      background-color:rgb(252, 252, 254);
+      box-shadow:0 4px 8px rgba(0, 0, 0, 0.2) ;
+      padding 20px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      width: 300px;
+
     }
+    .myf input:hover {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.myf button[type="submit"] {
+  background-color: #75a3d3;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+}
+
   </style>
 </head>
 <body>
   <h2>Form Validation</h2>
 
-  <form id="myForm" onsubmit="return validateForm();">
-    <label>First Name: <input type="text" id="firstName"></label><br><br>
-    <label>Last Name: <input type="text" id="lastName"></label><br><br>
-    <label>Email: <input type="text" id="email"></label><br><br>
-    <input type="submit" value="Submit">
-  </form>
+  <div class="myf">
+    <form id="myForm" onsubmit="return validateForm();">
+      <label>First Name: <input type="text" id="firstName"></label><br><br>
+      <label>Last Name: <input type="text" id="lastName"></label><br><br>
+      <label>Email: <input type="text" id="email"></label><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+  </div>
 
   <script>
     function validateForm() {
       var firstName = document.getElementById("firstName").value;
       var lastName = document.getElementById("lastName").value;
       var email = document.getElementById("email").value;
+      var message1 ="Please fill your firstName are u ok "
 
-      if (firstName === ""||lastName === ""||email === "") {
-        alert("Please fill in all text fields. in the form");
-        return false;
+      if (firstName === "") {
+        alert(message1);
+      }
+      else if(lastName === ""){
+         alert("Please fill your LastName");
+
+      }
+      else if (email === "") {
+         alert("Please fill your email");
+
       }
       else{
         alert("submision suceessfully");
 
       }
 
-      return true;
+  
     }
   </script>
 </body>
